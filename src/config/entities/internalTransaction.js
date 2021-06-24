@@ -1,6 +1,6 @@
 
 import { ROUTES as r, STATUS, CONTRACT_CREATED, CONTRACT_FAILED } from '../types'
-import { addressFilters, linkAddress, valueFilters } from './lib/fieldsTypes'
+import { addressFilters, linkAddress } from './lib/fieldsTypes'
 import { setThisAddress } from './lib/eventsLib'
 
 const key = 'internalTxId'
@@ -58,8 +58,7 @@ const InternalTransactions = () => {
       timestamp: null,
       value: {
         field: 'action.value',
-        filters: valueFilters(true),
-        trim: 'auto'
+        type: 'rbtcWithUsdShort'
       },
       status: {
         hideTitle: true,
@@ -85,7 +84,7 @@ const InternalTransactions = () => {
 
 const InternalTransaction = () => {
   const { from, to, timestamp, value } = InternalTransactions().fields
-  value.filters = valueFilters()
+  value.type = 'rbtcWithUsd'
   const fields = {
     from,
     to,
