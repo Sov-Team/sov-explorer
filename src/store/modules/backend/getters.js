@@ -98,3 +98,7 @@ export const getExportMetadata = state => key => {
   if (!key) return
   return state.exports[key]
 }
+
+export const getPrices = state => {
+  return state.prices
+}
