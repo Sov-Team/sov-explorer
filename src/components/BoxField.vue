@@ -37,7 +37,7 @@ export default {
     .data-field, .field-title .title
       margin 0
     .box-field-content
-      margin 0 0 0 2em
+      margin 0 0 0 1.2em
       .field-title
         justify-content flex-start
     .box-field-icon
