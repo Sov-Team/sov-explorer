@@ -5,8 +5,8 @@ import {
   CONTEXT
 } from '../../types'
 import { isAddress } from '../../../lib/js/utils'
-import { round } from '../../../filters/NumberFilters'
-import { eventValue } from '../../../filters/TokensFilters'
+import { round, locale, localeRound, rbtc, usd } from '../../../filters/NumberFilters'
+import { eventValue, txValue } from '../../../filters/TokensFilters'
 import { addAgo, mSecondsAgo } from '../../../filters/TimeFilters'
 import { store } from '../../../store/index'
 
@@ -39,6 +39,19 @@ export const eventValueField = (fixedDecimals) => {
   let filters = [(value, data) => eventValue(value, data._addressData)]
   filters = addDecimalFilters(filters, { fixedDecimals })
   return { suffix, filters }
+}
+
+export const rbtcWithUsd = (value, data, short = false) => {
+  let valueRbtc = txValue(value)
+  const prices = store.getters.getPrices
+  let valueUsd = valueRbtc * (prices?.['rbtc/usd'] ?? 0)
+  if (short) {
+    valueRbtc = fixDecimals(valueRbtc)
+    valueUsd = localeRound(valueUsd)
+  } else {
+    valueUsd = locale(round(valueUsd, 2))
+  }
+  return `${rbtc(valueRbtc)} (${usd(valueUsd)})`
 }
 
 const hashrate = {
@@ -159,6 +172,16 @@ export default {
   },
   rbtcBalance: {
     filters: ['round', 'locale-round', 'rbtc']
+  },
+  rbtcWithUsdShort: {
+    filters: (value, data) => rbtcWithUsd(value, data, true),
+    default: 0,
+    trim: 0
+  },
+  rbtcWithUsd: {
+    filters: rbtcWithUsd,
+    default: 0,
+    trim: 0
   },
   hashrate,
   blockHashrate: hashrate
