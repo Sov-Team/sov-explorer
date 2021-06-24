@@ -1,6 +1,5 @@
 import { ROUTES as r } from '../types'
 import { applyDecimals } from '../../filters/TokensFilters'
-import { valueFilters } from './lib/fieldsTypes'
 
 const addressFormatRow = ({ data, parentData }) => {
   data._totalSupplyResult = totalSupplyField(data)
@@ -19,13 +18,7 @@ export const Addresses = () => {
     fields: {
       address: null,
       balance: {
-        filters: valueFilters(true),
-        default: 0,
-        trim: 0
-      },
-      balanceUsd: {
-        title: 'Balance Value',
-        filters: ['tx-value', 'round', 'locale', 'usd'],
+        type: 'rbtcWithUsdShort',
         default: 0,
         trim: 0
       },
@@ -98,7 +91,7 @@ export const Address = () => {
       hideIfEmpty: true
     }
   }, fields)
-  address.fields.balance.filters = valueFilters(false)
+  address.fields.balance.type = 'rbtcWithUsd'
   return address
 }
 

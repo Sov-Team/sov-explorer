@@ -6,7 +6,7 @@ export default function () {
     tables: {},
     exportFormat: EXPORT_FORMATS.JSON,
     exportItems: EXPORT_ITEMS.LIST,
-    decimalPlaces: 4,
+    decimalPlaces: 2,
     q: {
       txs: {
         getTransactions: {

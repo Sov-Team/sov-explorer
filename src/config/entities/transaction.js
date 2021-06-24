@@ -10,7 +10,7 @@ import { txGasPrice } from '../../filters/TokensFilters'
 import { txIcon, txStatus } from '../../filters/TextFilters'
 import { formatEvent, filterTransferEvents, setThisAddress } from './lib/eventsLib'
 import { isAddress } from '../../lib/js/utils'
-import { linkAddress, addressFilters, valueFilters, isExport } from './lib/fieldsTypes'
+import { linkAddress, addressFilters, isExport } from './lib/fieldsTypes'
 
 const TX_STATUS_CSS = Object.freeze({
   FAIL: 'error',
@@ -92,7 +92,7 @@ const TxFields = () => {
       filters: addressFilters
     },
     value: {
-      filters: valueFilters()
+      type: 'rbtcWithUsd'
     },
     gasUsed: {
       type: 'gas',
@@ -141,7 +141,7 @@ const Txs = () => {
     type: null,
     showTitle: false
   })
-  fields.value.filters = valueFilters(true)
+  fields.value.type = 'rbtcWithUsdShort'
   return {
     key: 'hash',
     icon: 'transaction',
@@ -178,12 +178,11 @@ export const Tx = () => {
       default: 0
     },
     value: {
-      filters: ['tx-value', 'rbtc'],
-      default: 0
+      type: 'rbtcWithUsd'
     },
     fee: {
       field: '_fee',
-      filters: ['big-number', 'rbtc']
+      type: 'rbtcWithUsd'
     },
     time,
     date: {
