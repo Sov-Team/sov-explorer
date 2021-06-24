@@ -112,3 +112,7 @@ export const SET_EXPORT_METADATA = (state, [key, metadata]) => {
     Vue.set(state.exports[key], prop, metadata[prop])
   }
 }
+
+export const SET_PRICES = (state, data) => {
+  Vue.set(state, 'prices', data)
+}
