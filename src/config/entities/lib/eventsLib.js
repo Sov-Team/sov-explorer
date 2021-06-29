@@ -19,7 +19,8 @@ export const EventTransferFields = (include) => {
     from: EVENT_ADDRESS_FIELD(),
     to: EVENT_ADDRESS_FIELD(),
     value: {
-      type: 'eventValue'
+      renderAs: 'balance-with-usd',
+      renderAsProps: (props) => ({ ...props })
     },
     data: {
       renderAs: 'big-field'

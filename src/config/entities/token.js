@@ -23,7 +23,8 @@ const Tokens = () => {
         field: 'address'
       },
       balance: {
-        type: 'rbtcWithUsdShort'
+        renderAs: 'balance-with-usd',
+        renderAsProps: (props) => ({ ...props })
       },
       created: {
         field: 'createdByTx.timestamp',

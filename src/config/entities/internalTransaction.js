@@ -58,7 +58,8 @@ const InternalTransactions = () => {
       timestamp: null,
       value: {
         field: 'action.value',
-        type: 'rbtcWithUsdShort'
+        renderAs: 'balance-with-usd',
+        renderAsProps: (props) => ({ ...props })
       },
       status: {
         hideTitle: true,
@@ -84,7 +85,6 @@ const InternalTransactions = () => {
 
 const InternalTransaction = () => {
   const { from, to, timestamp, value } = InternalTransactions().fields
-  value.type = 'rbtcWithUsd'
   const fields = {
     from,
     to,

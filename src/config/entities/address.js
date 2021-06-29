@@ -18,9 +18,8 @@ export const Addresses = () => {
     fields: {
       address: null,
       balance: {
-        type: 'rbtcWithUsdShort',
-        default: 0,
-        trim: 0
+        renderAs: 'balance-with-usd',
+        renderAsProps: (props) => ({ ...props })
       },
       type: null,
       blockNumber: {
@@ -39,6 +38,11 @@ export const Address = () => {
   const fields = Object.assign(address.fields, {
     address: {
       trim: 'auto'
+    },
+    tokenBalance: {
+      title: 'Tokens Balance',
+      renderAs: 'tokens-balance',
+      renderAsProps: () => {}
     },
     contractInterfaces: {
       icon: 'link-external',
@@ -80,7 +84,6 @@ export const Address = () => {
       default: '',
       hideIfEmpty: true
     }
-
   })
   address.fields = Object.assign({
     name: {
@@ -91,7 +94,6 @@ export const Address = () => {
       hideIfEmpty: true
     }
   }, fields)
-  address.fields.balance.type = 'rbtcWithUsd'
   return address
 }
 
