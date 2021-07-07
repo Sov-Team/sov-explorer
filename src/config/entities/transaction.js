@@ -47,6 +47,7 @@ const transactionFormatRow = ({ data, parentData, context }) => {
     data.to = setThisAddress(data.to, { address }, context)
   }
   data.status = (data.receipt) ? data.receipt.status : data.status
+  data._errors = txStatus(data.status) === STATUS.FAIL
   if (contractAddress) {
     data.to = (txStatus(data.status) === STATUS.SUCCESS) ? CONTRACT_CREATED : CONTRACT_FAILED
   }
@@ -215,6 +216,12 @@ export const Tx = () => {
       hideIfEmpty: true,
       trim: 0,
       renderAs: 'big-field'
+    },
+    errors: {
+      field: '_errors',
+      hideIfEmpty: true,
+      renderAs: 'TxErrors',
+      renderAsProps: (props) => ({ ...props })
     }
   })
   return tx
