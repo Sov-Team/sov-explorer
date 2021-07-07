@@ -4,6 +4,7 @@ import FieldIcon from '../components/FieldIcon.vue'
 import FieldList from '../components/FieldList.vue'
 import BalanceWithUsd from '../components/BalanceWithUsd.vue'
 import TokensBalance from '../components/TokensBalance.vue'
+import TxErrors from '../components/TxErrors.vue'
 import { mSecondsAgo } from '../filters/TimeFilters'
 import { mapGetters } from 'vuex'
 import fieldsTypes from '../config/entities/lib/fieldsTypes'
@@ -15,7 +16,8 @@ export default {
     FieldIcon,
     FieldList,
     BalanceWithUsd,
-    TokensBalance
+    TokensBalance,
+    TxErrors
   },
   filers: {
     mSecondsAgo
