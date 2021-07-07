@@ -188,6 +188,7 @@ export const TransferEvents = () => {
       event.timestamp = eventData.timestamp
       if (_addressData) {
         event.contract = _addressData.name
+        event.symbol = _addressData.symbol
         event._addressData = _addressData
         event.from = setThisAddress(event.from, parentData, context)
         event.to = setThisAddress(event.to, parentData, context)

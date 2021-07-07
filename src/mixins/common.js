@@ -2,6 +2,8 @@ import ToolTip from '../components/ToolTip.vue'
 import BigField from '../components/BigField.vue'
 import FieldIcon from '../components/FieldIcon.vue'
 import FieldList from '../components/FieldList.vue'
+import BalanceWithUsd from '../components/BalanceWithUsd.vue'
+import TokensBalance from '../components/TokensBalance.vue'
 import { mSecondsAgo } from '../filters/TimeFilters'
 import { mapGetters } from 'vuex'
 import fieldsTypes from '../config/entities/lib/fieldsTypes'
@@ -11,7 +13,9 @@ export default {
     ToolTip,
     BigField,
     FieldIcon,
-    FieldList
+    FieldList,
+    BalanceWithUsd,
+    TokensBalance
   },
   filers: {
     mSecondsAgo

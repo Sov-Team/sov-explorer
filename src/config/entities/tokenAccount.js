@@ -106,7 +106,10 @@ const TokenByAddress = () => {
         field: 'contractAddress',
         link: (data, value, link) => value === THIS_CONTRACT ? null : value
       }),
-      balance
+      balance: {
+        renderAs: 'balance-with-usd',
+        renderAsProps: (props) => ({ ...props })
+      }
     }
   }
 }

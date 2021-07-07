@@ -92,7 +92,8 @@ const TxFields = () => {
       filters: addressFilters
     },
     value: {
-      type: 'rbtcWithUsd'
+      renderAs: 'balance-with-usd',
+      renderAsProps: (props) => ({ ...props })
     },
     gasUsed: {
       type: 'gas',
@@ -141,7 +142,6 @@ const Txs = () => {
     type: null,
     showTitle: false
   })
-  fields.value.type = 'rbtcWithUsdShort'
   return {
     key: 'hash',
     icon: 'transaction',
@@ -178,11 +178,13 @@ export const Tx = () => {
       default: 0
     },
     value: {
-      type: 'rbtcWithUsd'
+      renderAs: 'balance-with-usd',
+      renderAsProps: (props) => ({ ...props })
     },
     fee: {
       field: '_fee',
-      type: 'rbtcWithUsd'
+      renderAs: 'balance-with-usd',
+      renderAsProps: (props) => ({ ...props })
     },
     time,
     date: {
