@@ -52,6 +52,7 @@ export default {
   @import '../lib/styl/vars.styl'
   div.one-line
     flex-flow: row nowrap
+    width 100%
   .usd-value
     color: txt-color
     padding-left: 0.5em
