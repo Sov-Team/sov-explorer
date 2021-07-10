@@ -25,7 +25,16 @@ export default {
 </script>
 <style lang="stylus">
   .message
+    svg.svg-icon
+      opacity 0.8
+      height 0.9em
+      fill inherit
+  .message
+    display flex
+    align-items center
+  .message
     .title
       font-weight 600
+      font-size smaller
       margin 0 0.5em 0 0.25em
 </style>
