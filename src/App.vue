@@ -145,6 +145,7 @@ export default {
 <style lang="stylus">
 @import 'lib/styl/style.styl'
 @import 'lib/styl/mixins.styl'
+@import 'lib/styl/vars.styl'
 
 .w-trans
   transition opacity 1s ease
@@ -155,11 +156,9 @@ export default {
 
 .top-page
   flex-centered()
-  font-size 0.9em
   text-shadow $txt-sh
-  background $darkness-odd
-  border-bottom 1px solid $darkness-even
-
+  font-size 1em
+  margin 70px 0 -70px
 .menu
   font-size 0.9em
 </style>

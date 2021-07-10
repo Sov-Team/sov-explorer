@@ -15,8 +15,8 @@ export const fillMessage = (msg, data) => {
 
 export const DB_OUTDATED = {
   title: 'Warning:',
-  txt: 'The database is not up to date',
-  type: 'error',
+  txt: 'The server node is not fully synced',
+  type: 'warn',
   icon: 'warning'
 }
 
